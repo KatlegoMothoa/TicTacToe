@@ -8,6 +8,7 @@ public class TicTacToe {
     int boardHeight = 650;
 
     JFrame frame = new JFrame("i'm tryna memorize these things");
+    JLabel textLabel = new JLabel();
 
     TicTacToe() {
         frame.setVisible(true);
