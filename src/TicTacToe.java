@@ -6,10 +6,12 @@ public class TicTacToe {
     int boardWidth = 600;
     int boardHeight = 650;
 
-    JFrame frame = new JFrame("KatKodes Tic-Tac-toe");
+    JFrame frame = new JFrame("KATKODES Tic-Tac-Toe");
     JLabel textLabel = new JLabel();
     JPanel textPanel = new JPanel();
     JPanel boardPanel = new JPanel();
+
+    JButton[][] board = new JButton[3][3];
 
     TicTacToe() {
         frame.setVisible(true);
@@ -19,7 +21,7 @@ public class TicTacToe {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
 
-        textLabel.setBackground(Color.darkGray);
+        textLabel.setBackground(Color.blue);
         textLabel.setForeground(Color.white);
         textLabel.setFont(new Font("Arial", Font.BOLD, 50));
         textLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -31,8 +33,19 @@ public class TicTacToe {
         frame.add(textPanel, BorderLayout.NORTH);
 
         boardPanel.setLayout(new GridLayout(3, 3));
-        boardPanel.setBackground(Color.blue);
+        boardPanel.setBackground(Color.darkGray);
         frame.add(boardPanel);
+
+        for(int r = 0; r < 3; r++){ 
+            for(int c = 0; c < 3; c++){
+
+                JButton tile = new JButton();
+                board[r][c] = tile;
+                boardPanel.add(tile);
+
+            }
+        }
+
 
     }
 
