@@ -12,6 +12,9 @@ public class TicTacToe {
     JPanel boardPanel = new JPanel();
 
     JButton[][] board = new JButton[3][3];
+    String playerX = "X";
+    String playerO = "O";
+    String currentPlayer = playerX;
 
     TicTacToe() {
         frame.setVisible(true);
@@ -42,6 +45,12 @@ public class TicTacToe {
                 JButton tile = new JButton();
                 board[r][c] = tile;
                 boardPanel.add(tile);
+
+                tile.setBackground(Color.darkGray);
+                tile.setForeground(Color.white);
+                tile.setFont(new Font("Arial", Font.BOLD, 120));
+                tile.setFocusable(false);
+                //tile.setText(currentPlayer);
 
             }
         }
