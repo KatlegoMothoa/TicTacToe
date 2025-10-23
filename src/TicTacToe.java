@@ -4,17 +4,21 @@ import javax.swing.*;
 
 public class TicTacToe {
     int boardWidth = 600;
-    int boardHeight = 650;
-
+    int boardHeight = 650; 
+    
     JFrame frame = new JFrame("KATKODES Tic-Tac-Toe");
+
     JLabel textLabel = new JLabel();
     JPanel textPanel = new JPanel();
     JPanel boardPanel = new JPanel();
-
+    
     JButton[][] board = new JButton[3][3];
     String playerX = "X";
     String playerO = "O";
+
     String currentPlayer = playerX;
+
+     
 
     TicTacToe() {
         frame.setVisible(true);
@@ -24,11 +28,12 @@ public class TicTacToe {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
 
+
         textLabel.setBackground(Color.blue);
         textLabel.setForeground(Color.white);
         textLabel.setFont(new Font("Arial", Font.BOLD, 50));
         textLabel.setHorizontalAlignment(JLabel.CENTER);
-        textLabel.setText("Tic-Tac-Toe");
+        textLabel.setText("TicTacToe");
         textLabel.setOpaque(true);
 
         textPanel.setLayout(new BorderLayout());
@@ -39,22 +44,33 @@ public class TicTacToe {
         boardPanel.setBackground(Color.darkGray);
         frame.add(boardPanel);
 
-        for(int r = 0; r < 3; r++){ 
-            for(int c = 0; c < 3; c++){
+        for(int r = 0; r < 3; r++){
+            for(int c = 0; c < 3;  c++){
 
                 JButton tile = new JButton();
                 board[r][c] = tile;
                 boardPanel.add(tile);
 
                 tile.setBackground(Color.darkGray);
-                tile.setForeground(Color.white);
+                tile.setForeground(Color.red);
                 tile.setFont(new Font("Arial", Font.BOLD, 120));
                 tile.setFocusable(false);
                 //tile.setText(currentPlayer);
 
+                tile.addActionListener(new ActionListener(){
+                    public void actionPerformed(ActionEvent e){
+
+                        JButton tile =(JButton) e.getSource();
+                        tile.setText(currentPlayer);
+
+                        currentPlayer = currentPlayer == playerX ? playerO : playerX;
+                        textLabel.setText("Player "+currentPlayer+"'s turn");
+
+                    }
+
+                });
             }
         }
-
 
     }
 
